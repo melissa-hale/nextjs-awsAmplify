@@ -13,7 +13,7 @@ export default function Home({ date }) {
           alt="Nacelle Logo"
         />
       </div>
-      <h1>Welcome to your Nacelle Storefront</h1>
+      <h1>Welcome to your Nacelle Storefront (dev)</h1>
       <h3>Current date and time: {date}</h3>
       <h4><Link href='/collections/bikes'><button>Click here to head on over to the bikes collection</button></Link></h4>
       <p>

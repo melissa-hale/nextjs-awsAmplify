@@ -1,7 +1,8 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
-export default function Home() {
+export default function Home({ date }) {
   return (
     <div className={styles.home}>
       <div className={styles.logo}>
@@ -13,6 +14,8 @@ export default function Home() {
         />
       </div>
       <h1>Welcome to your Nacelle Storefront</h1>
+      <h3>Current date and time: {date}</h3>
+      <h4><Link href='/collections/bikes'><button>Click here to head on over to the bikes collection</button></Link></h4>
       <p>
         Edit <code className={styles.inlineCode}>pages/index.js</code> to get
         started.
@@ -28,4 +31,15 @@ export default function Home() {
       </p>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  const d = new Date()
+  const date = d.toJSON()
+  return {
+    props: {
+      name: 'User',
+      date: date
+    }, // will be passed to the page component as props
+  }
 }
